@@ -1,7 +1,7 @@
 ### start
 d=$(date)
 
-cat << EOF > ./index.html
+cat << EOF > /tmp/django/index.html
 <html>
 <head>
 <title>example1</title>
@@ -12,9 +12,9 @@ cat << EOF > ./index.html
 </html>
 EOF
 
-cat << EOF > ./Dockerfile
+cat << EOF > /tmp/django/Dockerfile
 FROM prakhar1989/static-site
-COPY ./index.html /usr/share/nginx/html/
+COPY /tmp/django/index.html /usr/share/nginx/html/
 EOF
 
 docker build -t myproject2 .
